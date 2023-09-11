@@ -10,6 +10,7 @@
   "author": "Marcos Augusto",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sequelize": "^6.32.1"
   }
 }
