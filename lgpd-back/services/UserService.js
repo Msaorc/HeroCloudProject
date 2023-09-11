@@ -8,8 +8,8 @@ const getUserById = (id) => {
     return userRepository.getUserById(id)
 }
 
-const getAllUsers = (id) => {
-    return userRepository.getAllUsers(id)
+const getAllUsers = () => {
+    return userRepository.getAllUsers()
 }
 
 const deleteUserById = (id) => {
