@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {TeacherFormComponent} from "./teacher-form/teacher-form.component";
 import {TeacherListComponent} from "./teacher-list/teacher-list.component";
 
-
-//Alterar routes para adicionar as rotas /teachers e /addTeacher
 const routes: Routes = [
   {
     path: 'teachers',
