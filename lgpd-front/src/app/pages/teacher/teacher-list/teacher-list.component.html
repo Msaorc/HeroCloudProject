@@ -22,7 +22,7 @@
           <tr *ngFor="let teacher of teachers">
             <th scope="row">{{teacher.id}}</th>
             <td>{{teacher.name}}</td>
-            <td>{{teacher.course_id}}</td>
+            <td>{{getLabelCourse(teacher.course_id)}}</td>
             <td>
               <a class="btn btn-outline-primary" [href]="'/addTeacher?id='+teacher.id">
                 <fa-icon [icon]="faPencil"></fa-icon>

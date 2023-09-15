@@ -44,6 +44,10 @@ export class TeacherListComponent implements OnInit {
     }
   }
 
+  getLabelCourse(value: string): string | undefined {
+    let course = this.courseLabel.find((course) => course.value == value)
+    return course?.label
+  }
 
   onConfirm(value: any) {
     alert("Value:" + value);

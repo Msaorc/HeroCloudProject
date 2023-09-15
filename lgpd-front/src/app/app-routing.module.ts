@@ -12,7 +12,6 @@ import { CourseFormComponent } from './pages/course/course-form/course-form.comp
 const routes: Routes = [
   {
     path: '',
-    //Remover linha abaixo para ajustar o routing de todas as páginas
     children: [
       {
         path: 'users',
