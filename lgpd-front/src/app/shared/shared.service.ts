@@ -19,28 +19,6 @@ export class SharedService {
     userLabel: Array<{ value: string, label: string }> = [];
     courseLabel: Array<{ value: string, label: string }> = [];
 
-    async converterUserToOption(): Promise<any[]> {
-        this.users.forEach((user: {id: string, first_name: string}) => {
-            let u = {
-                value: user.id.toString(),
-                label: user.first_name
-            }
-            this.userLabel.push(u)
-        })
-        return this.userLabel
-    }
-
-    async converterCourseToOption(): Promise<any[]> {
-        this.courses.forEach((course: {id: string, name: string}) => {
-            let u = {
-                value: course.id.toString(),
-                label: course.name
-            }
-            this.courseLabel.push(u)
-        })
-        return this.courseLabel
-    }
-
     getUsers(): Observable<any[]> {
         return this.http
             .get("http://localhost:3000/getAllUsers")
@@ -75,6 +53,28 @@ export class SharedService {
                     return this.courses;
                 })
             );
+    }
+
+    async converterUserToOption(): Promise<any[]> {
+        this.users.forEach((user: {id: string, first_name: string}) => {
+            let u = {
+                value: user.id.toString(),
+                label: user.first_name
+            }
+            this.userLabel.push(u)
+        })
+        return this.userLabel
+    }
+
+    async converterCourseToOption(): Promise<any[]> {
+        this.courses.forEach((course: {id: string, name: string}) => {
+            let u = {
+                value: course.id.toString(),
+                label: course.name
+            }
+            this.courseLabel.push(u)
+        })
+        return this.courseLabel
     }
 
     constructor(private http: HttpClient, private userService: UserService, private courseService: CourseService) {
