@@ -13,6 +13,9 @@ export interface Params {
 })
 
 export class SharedService {
+    constructor(private http: HttpClient, private userService: UserService, private courseService: CourseService) {
+    }
+
     users: Array<{ id: string, first_name: string }> = [];
     courses: Array<{ id: string, name: string }> = [];
 
@@ -23,7 +26,8 @@ export class SharedService {
         return this.http
             .get("http://localhost:3000/getAllUsers")
             .pipe(
-                map(x => {Object.values(x).map((user) => {
+                map(x => {
+                    Object.values(x).map((user) => {
                         let u = {
                             id: user.id,
                             first_name: user.first_name
@@ -41,7 +45,8 @@ export class SharedService {
         return this.http
             .get("http://localhost:3000/getAllCourses")
             .pipe(
-                map(x => {Object.values(x).map((course) => {
+                map(x => {
+                    Object.values(x).map((course) => {
                         let c = {
                             id: course.id,
                             name: course.name
@@ -56,7 +61,7 @@ export class SharedService {
     }
 
     async converterUserToOption(): Promise<any[]> {
-        this.users.forEach((user: {id: string, first_name: string}) => {
+        this.users.forEach((user: { id: string, first_name: string }) => {
             let u = {
                 value: user.id.toString(),
                 label: user.first_name
@@ -67,7 +72,7 @@ export class SharedService {
     }
 
     async converterCourseToOption(): Promise<any[]> {
-        this.courses.forEach((course: {id: string, name: string}) => {
+        this.courses.forEach((course: { id: string, name: string }) => {
             let u = {
                 value: course.id.toString(),
                 label: course.name
@@ -77,6 +82,4 @@ export class SharedService {
         return this.courseLabel
     }
 
-    constructor(private http: HttpClient, private userService: UserService, private courseService: CourseService) {
-    }
 }
